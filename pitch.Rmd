@@ -53,11 +53,11 @@ The dataset forms the backbone of the app’s prediction logic. The Shiny app's 
 ---
 
 ### **GitHub Repository**:
-- The complete code for the Shiny app (including `ui.R`, `server.R`, and other supporting files) is available on [GitHub](https://github.com/yourusername/yourrepository).
+- The complete code for the Shiny app (including `ui.R`, `server.R`, and other supporting files) is available on [GitHub](https://github.com/AaronAbraham0809/DDP-ShinyApp).
 - This is where you can find the full source code, make contributions, or modify it for your own purposes.
 
 ### **Live Shiny Application**:
-- The deployed app is hosted on [ShinyApps.io](https://yourapp.shinyapps.io).
+- The deployed app is hosted on [ShinyApps.io](https://aaronabraham0809.shinyapps.io/shinyapp/).
 - Visit this link to interact with the app and see it in action! Adjust the inputs, explore the dataset, and check out the predictions in real time.
 
 #### **Additional Resources**:
