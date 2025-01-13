@@ -1,0 +1,79 @@
+---
+title: "Reproducible Pitch for Shiny App"
+author: "Aaron Abraham Mathews"
+date: "13/01/2025"
+output: ioslides_presentation
+runtime: shiny
+---
+
+### **Exploring the Iris Dataset**
+
+- This Shiny application allows users to explore the `iris` dataset interactively.
+- Features:
+  - Variable selection for visualization.
+  - Filtering based on `Sepal.Length`.
+  - Reactive plots and data summaries.
+
+---
+
+### **Key Features**
+
+1. **Input Widgets**:
+   - Dropdown menus for selecting X and Y variables.
+   - Slider to filter `Sepal.Length`.
+   - Radio buttons to filter by species.
+
+2. **Reactive Outputs**:
+   - Scatterplot updates dynamically based on inputs.
+   - Summary statistics of the filtered data.
+
+3. **Documentation**:
+   - Intuitive interface for users of all levels.
+
+---
+
+#### **Dataset Features**:
+- **Sepal Length (cm)**: The length of the sepal (the part of the flower that protects the bud).
+- **Sepal Width (cm)**: The width of the sepal.
+- **Petal Length (cm)**: The length of the petal (the colorful part of the flower).
+- **Petal Width (cm)**: The width of the petal.
+- **Species**: The target variable (setosa, versicolor, virginica), which we are trying to predict using the above measurements.
+
+#### **Why Use the Iris Dataset?**
+- It's simple, easy to understand, and widely used as a benchmark for learning machine learning techniques.
+- It allows us to test models for classification, prediction, and visualization.
+
+---
+
+#### **Shiny App Context**:
+In our Shiny app, users will interact with these features to build predictive models. By adjusting input sliders for measurements like **Sepal Length** or **Petal Width**, the app will predict the **species** of the flower based on the provided features.
+
+The dataset forms the backbone of the app’s prediction logic. The Shiny app's ability to let users dynamically input data and receive predictions makes it easy for even a novice user to explore the dataset.
+
+---
+
+### **GitHub Repository**:
+- The complete code for the Shiny app (including `ui.R`, `server.R`, and other supporting files) is available on [GitHub](https://github.com/yourusername/yourrepository).
+- This is where you can find the full source code, make contributions, or modify it for your own purposes.
+
+### **Live Shiny Application**:
+- The deployed app is hosted on [ShinyApps.io](https://yourapp.shinyapps.io).
+- Visit this link to interact with the app and see it in action! Adjust the inputs, explore the dataset, and check out the predictions in real time.
+
+#### **Additional Resources**:
+- Documentation on how to run the Shiny app locally and deployment instructions are available in the GitHub repository.
+
+---
+
+### **Reactive Server Code**
+
+```{r, echo=TRUE, eval=FALSE}
+filteredData <- reactive({
+  data <- iris
+  if (input$speciesFilter != "All") {
+    data <- data[data$Species == input$speciesFilter, ]
+  }
+  data <- data[data$Sepal.Length >= input$sepalFilter[1] & 
+                 data$Sepal.Length <= input$sepalFilter[2], ]
+  return(data)
+})
